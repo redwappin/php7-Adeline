@@ -13,7 +13,7 @@ function RandomSerie()
     return $shows[$showname];
 }
 
-function MostPopularsFilms(int $indice){
+function PopularsFilms(int $indice){
     $json = file_get_contents(__DIR__.'/../data/shows.json');
     $shows = json_decode($json, true);
     $MostPopularMovies=[];
@@ -21,6 +21,31 @@ function MostPopularsFilms(int $indice){
     foreach ($shows as $key => $value)
      {
          $MostPopularMovies[$key] = $shows[$key]["statistics"]["popularity"];
+     }
+     arsort( $MostPopularMovies);
+     $MoviesOrderByPopularity=array_keys( $MostPopularMovies);
+     foreach($shows as $key => $value)
+     {
+         if ($MoviesOrderByPopularity[$indice]==$shows[$key]["slug"])
+         {
+           $Movie=$shows[$key];
+         }
+     }
+     return $Movie;
+}
+
+function MostPopularsFilms(int $indice){
+    $json = file_get_contents(__DIR__.'/../data/shows.json');
+    $shows = json_decode($json, true);
+    $MostPopularMovies=[];
+    $Movie='Aucun';
+    $slug='toto';
+    if (isset($_GET['slug'])) {
+        $slug = $_GET['slug'];
+    }
+    foreach ($shows as $key => $value)
+     {
+         $MostPopularMovies[$key] = $shows[$key]["statistics"][$slug];
      }
      arsort( $MostPopularMovies);
      $MoviesOrderByPopularity=array_keys( $MostPopularMovies);

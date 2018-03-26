@@ -80,28 +80,28 @@ require_once(__DIR__.'/src/functions.php');
                     <p>Les séries qui sont suivient par le plus de monde.</p>
                     <p>
                         <div class="card">
-                          <img class="card-img-top" src=<?=MostPopularsFilms(0)['images']['banner']?>>
+                          <img class="card-img-top" src=<?=PopularsFilms(0)['images']['banner']?>>
                           <div class="card-body">
-                              <h5 class="card-title">#1 - <a href="serie.php?slug=<?=MostPopularsFilms(0)['slug']?>"><?= MostPopularsFilms(0)['name']?></a></h5>
-                              <p class="card-text"><?= MostPopularsFilms(0)['statistics']['popularity']?> personnes regardent cette série.</p>
+                              <h5 class="card-title">#1 - <a href="serie.php?slug=<?=PopularsFilms(0)['slug']?>"><?= PopularsFilms(0)['name']?></a></h5>
+                              <p class="card-text"><?= PopularsFilms(0)['statistics']['popularity']?> personnes regardent cette série.</p>
                           </div>
                         </div>
                     </p>
                     <p>
                         <div class="card">
-                          <img class="card-img-top" src=<?=MostPopularsFilms(1)['images']['banner']?>>
+                          <img class="card-img-top" src=<?=PopularsFilms(1)['images']['banner']?>>
                           <div class="card-body">
-                              <h5 class="card-title">#2 - <a href="serie.php?slug=<?=MostPopularsFilms(1)['slug']?>"><?= MostPopularsFilms(1)['name']?></a></h5>
-                              <p class="card-text"><?= MostPopularsFilms(1)['statistics']['popularity']?> personnes regardent cette série.</p>
+                              <h5 class="card-title">#2 - <a href="serie.php?slug=<?=PopularsFilms(1)['slug']?>"><?= PopularsFilms(1)['name']?></a></h5>
+                              <p class="card-text"><?= PopularsFilms(1)['statistics']['popularity']?> personnes regardent cette série.</p>
                           </div>
                         </div>
                     </p>
                     <p>
                         <div class="card">
-                          <img class="card-img-top" src=<?=MostPopularsFilms(2)['images']['banner']?>>
+                          <img class="card-img-top" src=<?=PopularsFilms(2)['images']['banner']?>>
                           <div class="card-body">
-                              <h5 class="card-title">#3 - <a href="serie.php?slug=<?=MostPopularsFilms(2)['slug']?>"><?= MostPopularsFilms(2)['name']?></a></h5>
-                              <p class="card-text"><?=MostPopularsFilms(2)['statistics']['popularity']?> personnes regardent cette série.</p>
+                              <h5 class="card-title">#3 - <a href="serie.php?slug=<?=PopularsFilms(2)['slug']?>"><?= PopularsFilms(2)['name']?></a></h5>
+                              <p class="card-text"><?=PopularsFilms(2)['statistics']['popularity']?> personnes regardent cette série.</p>
                           </div>
                         </div>
                     </p>

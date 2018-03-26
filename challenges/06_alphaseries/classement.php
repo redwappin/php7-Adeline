@@ -81,7 +81,7 @@ require_once(__DIR__.'/src/functions.php');
                                 <th scope="col">Série</th>
                                 <th scope="col">
                                     Note
-                                    <a href="classement.php"><i class="fa fa-sort-down"></i></a>
+                                    <a href="classement.php?slug=rating"><i class="fa fa-sort-down"></i></a>
                                 </th>
                                 <th scope="col">
                                     Nombre de personnes qui regardent
