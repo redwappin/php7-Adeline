@@ -1,6 +1,6 @@
 <?php
 
-file_get_contents(__DIR__.'/../classement.php');
+
 
 
 function RandomSerie()
@@ -33,6 +33,38 @@ function PopularsFilms(int $indice){
      }
      return $Movie;
 }
+
+function TheMostFamousFilms($modeofclassement){
+    if($modeofclassement=="popularity"){
+        for($i=0;$i<3;$i++){
+            $nb=$i+1;
+            print '<p> <div class="card">';
+            print  '<img class="card-img-top" src='.PopularsFilms($i)['images']['banner'].'>';
+            print  '<div class="card-body"> <h5 class="card-title">#'.$nb.' <a href="serie.php?slug='.PopularsFilms($i)['slug'].'">'.PopularsFilms($i)['name'].'</a></h5>';
+            print  '<p class="card-text">'.PopularsFilms($i)['statistics']['popularity'].' personnes regardent cette série.</p></div></div></p>';
+        }
+    }
+    else if ($modeofclassement=="rating"){
+        for($i=0;$i<3;$i++){
+            $nb=$i+1;
+            print '<p> <div class="card">';
+            print  '<img class="card-img-top" src='.TopRatedMovies($i)['images']['banner'].'>';
+            print  '<div class="card-body"> <h5 class="card-title">#'.$nb.' <a href="serie.php?slug='.TopRatedMovies($i)['slug'].'">'.TopRatedMovies($i)['name'].'</a></h5>';
+            print  '<p class="card-text">'.TopRatedMovies($i)['statistics']['popularity'].' personnes regardent cette série.</p></div></div></p>';
+        }
+    }
+    else if ($modeofclassement=="classement"){
+        for($i=0;$i<11;$i++){
+            $nb=$i+1;
+            print '<tr> <th scope="row">'.$nb.'</th>';
+            print '<td><a href="serie.php?slug='.MostPopularsFilms($i)['slug'].'">'.MostPopularsFilms($i)['name'].'</a></td>';
+            print '<td> <span class="stars text-info" data-toggle="tooltip" data-placement="top" title="'.TopRatedMovies($i)['statistics']['rating'].'">';
+            print StarsInClassement($i).'</span></td>';
+            print '<td>'.MostPopularsFilms($i)['statistics']['popularity'].'</td></tr>';
+        }
+    }
+    }
+
 
 function MostPopularsFilms(int $indice){
     $json = file_get_contents(__DIR__.'/../data/shows.json');

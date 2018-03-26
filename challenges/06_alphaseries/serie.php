@@ -76,7 +76,7 @@ require_once(__DIR__.'/src/functions.php');
 
                 <!-- Poster de la série -->
                 <div class="col-md-3 d-none d-md-block">
-                    <img src=<?= getSerie()['images']['poster'] ?> alt="Poster de Rick and Morty" class="img-thumbnail">
+                    <img src=<?= getSerie()['images']['poster'] ?> alt="" class="img-thumbnail">
                 </div>
 
                 <!-- Fiche série -->
