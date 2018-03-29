@@ -1,0 +1,20 @@
+{
+    "name": "mimil/test-discord",
+    "description": "ady",
+    "authors": [
+        {
+            "name": "RedWappin",
+            "email": "adeline.delbecq@ynov.com"
+        }
+    ],
+
+    "autoload": {
+        "psr-4": {
+            "": "src/"
+        }
+    },
+
+    "require": {
+        "guzzlehttp/guzzle": "^6.3"
+    }
+}
