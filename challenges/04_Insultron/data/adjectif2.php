@@ -1,6 +1,6 @@
 <?php
 return[
-    'noire',
+    'gentille',
     'flamboyante',
     'irregardable',
     'puant',

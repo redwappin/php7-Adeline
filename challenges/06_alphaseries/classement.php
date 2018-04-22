@@ -38,7 +38,7 @@ require_once(__DIR__.'/src/functions.php');
                     </a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="classement.php?slug=popularity">
+                    <a class="nav-link" href="classement.php?slug=popularity&amp;value=1">
                         <i class="fas fa-trophy"></i> Classement
                     </a>
                 </li>
@@ -81,11 +81,11 @@ require_once(__DIR__.'/src/functions.php');
                                 <th scope="col">Série</th>
                                 <th scope="col">
                                     Note
-                                    <a href="classement.php?slug=rating"><i class="fa fa-sort-down"></i></a>
+                                    <a href="classement.php?slug=rating&amp;value=1"><i class="fa fa-sort-down"></i></a>
                                 </th>
                                 <th scope="col">
                                     Nombre de personnes qui regardent
-                                    <a href="classement.php?slug=popularity">
+                                    <a href="classement.php?slug=popularity&amp;value=1">
                                     <i class="fa fa-sort-down"></i>
                                 </th>
                             </tr>
@@ -101,13 +101,9 @@ require_once(__DIR__.'/src/functions.php');
                     <!-- BONUS Pagination -->
                     <nav aria-label="Page navigation example">
                         <ul class="pagination">
-                            <li class="page-item"><a class="page-link" href="classement.php">&laquo;</a></li>
-                            <li class="page-item active"><a class="page-link" href="classement.php">1</a></li>
-                            <li class="page-item"><a class="page-link" href="classement.php">2</a></li>
-                            <li class="page-item"><a class="page-link" href="classement.php">3</a></li>
-                            <li class="page-item disabled"><a class="page-link" href="classement.php">…</a></li>
-                            <li class="page-item"><a class="page-link" href="classement.php">99</a></li>
-                            <li class="page-item"><a class="page-link" href="classement.php">&raquo;</a></li>
+
+                            <?php    page();  ?>
+                            
                         </ul>
                     </nav>
                 </div>

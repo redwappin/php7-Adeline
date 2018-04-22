@@ -4,7 +4,7 @@ return [
   'une chienne',
   'un crocodile',
   'une orange',
-  'ady',
+  'une armoire',
   'une baleine',
   'mon petit asticot',
   'ma cellulite',

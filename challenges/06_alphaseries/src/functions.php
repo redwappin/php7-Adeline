@@ -35,6 +35,10 @@ function PopularsFilms(int $indice){
 }
 
 function TheMostFamousFilms($modeofclassement){
+    $value=0;
+    if(isset($_GET['value'])){
+           $value=$_GET['value'];
+    }
     if($modeofclassement=="popularity"){
         for($i=0;$i<3;$i++){
             $nb=$i+1;
@@ -44,7 +48,7 @@ function TheMostFamousFilms($modeofclassement){
             print  '<p class="card-text">'.PopularsFilms($i)['statistics']['popularity'].' personnes regardent cette série.</p></div></div></p>';
         }
     }
-    else if ($modeofclassement=="rating"){
+     if ($modeofclassement=="rating"){
         for($i=0;$i<3;$i++){
             $nb=$i+1;
             print '<p> <div class="card">';
@@ -53,8 +57,8 @@ function TheMostFamousFilms($modeofclassement){
             print  '<p class="card-text">'.TopRatedMovies($i)['statistics']['popularity'].' personnes regardent cette série.</p></div></div></p>';
         }
     }
-    else if ($modeofclassement=="classement"){
-        for($i=0;$i<11;$i++){
+    if ($modeofclassement=="classement"){
+        for($i=($value*11)-11;$i<($value*11);$i++){
             $nb=$i+1;
             print '<tr> <th scope="row">'.$nb.'</th>';
             print '<td><a href="serie.php?slug='.MostPopularsFilms($i)['slug'].'">'.MostPopularsFilms($i)['name'].'</a></td>';
@@ -83,7 +87,7 @@ function MostPopularsFilms(int $indice){
      $MoviesOrderByPopularity=array_keys( $MostPopularMovies);
      foreach($shows as $key => $value)
      {
-         if ($MoviesOrderByPopularity[$indice]==$shows[$key]["slug"])
+         if ($MoviesOrderByPopularity[$indice]==$shows[$key]['slug'])
          {
            $Movie=$shows[$key];
          }
@@ -131,8 +135,9 @@ function Stars($MovieRating){
     }
 }
 
-function StarsInClassement(int $indice){
-$MovieRating=(string)TopRatedMovies($indice)["statistics"]["rating"];
+function StarsInClassement(int $indice)
+{
+    $MovieRating=(string)TopRatedMovies($indice)["statistics"]["rating"];
     Stars($MovieRating);
 }
 function StarsInMovieDesription()
@@ -152,6 +157,29 @@ function getSerie()
     }
     $selectedShow=$shows[$slug];
     return $selectedShow;
+}
+
+function page(){
+    $json = file_get_contents(__DIR__.'/../data/shows.json');
+    $shows = json_decode($json, true);
+    $slug='toto';
+    $value='0';
+    $numpages=1;
+    $numero=1;
+    if (isset($_GET['slug'])) {
+        $slug = $_GET['slug'];
+    }
+     if(isset($_GET['value'])){
+            $value=$_GET['value'];
+     }
+     print '<li class="page-item"><a class="page-link" href="classement.php?slug='.$slug.'&amp;value="'.($numero-1).'>&laquo;</a></li>';
+     for($i=$numpages;$i<=($numpages+2);$i++){
+        print '<li class="page-item"><a class="page-link" href="classement.php?slug='.$slug.'&amp;value='.$i.'">'.$numero.'</a></li>';
+        $numero++;
+     }
+     print '<li class="page-item disabled"><a class="page-link" href="classement.php?slug='.$slug.'">…</a></li>';
+     print '<li class="page-item"><a class="page-link" href="classement.php?slug='.$slug.'&amp;value=100">100</a></li>';
+     print '<li class="page-item"><a class="page-link" href="classement.php?slug='.$slug.'&amp;value='.($numero+1).'">&raquo;</a></li>';
 }
 
 
